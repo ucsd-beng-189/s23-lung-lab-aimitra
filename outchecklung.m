@@ -11,11 +11,11 @@ ca=carterial(cv,r);
 %
 %vector of oxygen partial pressures
 %in arterial blood leaving each alveolus:
-Pa=H(ca);
+Pa=H(ca); 
 %
 %vector of oxygen partial pressures 
 %in alveolar air:
-PA=Pa;
+PA=Pa; 
 %
 %vector of oxygen concentrations
 %in alveolar air:
@@ -37,16 +37,16 @@ cAbar=VA'*cA/sum(VA)
 cI
 %
 %oxygen partial pressure in venous blood:
-Pv=H(cv)
+Pv=H(cv) %VENOUS PP
 %
 %mean arterial oxygen partial pressure:
-Pabar=H(cabar)
+Pabar=H(cabar) %ARTERIAL PP
 %
 %mean alveolar oxygen partial pressure:
-PAbar=RT*cAbar
+PAbar=RT*cAbar %ALVEOLAR PP
 %
 %oxygen partial pressure in the inspired air:
-PI=RT*cI
+PI=RT*cI %INSPIRED PP
 % 
 %check that partial pressures are in expected order
 if((Pv<Pabar)&(Pabar<=PAbar)&(PAbar<PI))
@@ -86,8 +86,8 @@ u=ones(n,1);
 cblood=[cv*u cabar*u ca];
 cair=  [cI*u cAbar*u cA];
 Pressures=[Pv*u Pabar*u PAbar*u PI*u Pa PA];
-figure(2)
-subplot(2,1,1),plot(r,cblood,'.')
-subplot(2,1,2),plot(r,cair  ,'.')
-figure(3)
-plot(r,Pressures,'.')
+% figure(2)
+% subplot(2,1,1),plot(r,cblood,'.')
+% subplot(2,1,2),plot(r,cair  ,'.')
+% figure(3)
+% plot(r,Pressures,'.')
