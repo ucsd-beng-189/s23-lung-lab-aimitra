@@ -2,7 +2,7 @@
 %heterogeneity parameter (0<=beta<=1):
 %beta=0 for homogenous lung
 %beta=1 for no ventilation/perfusion correlation
-beta=0.5
+%beta=0.5
 %
 %number of iterations used in bisection:
 maxcount=20
@@ -37,7 +37,7 @@ RT=760*22.4*(310/273)
 %
 %oxygen partial pressure 
 %in the inspired air (mmHg):
-PI=RT*cI
+PI=RT*cI %INSPIRED PARTIAL PRESSURE
 %
 %oxygen concentration
 %in blood exposed directly to inspired air:
