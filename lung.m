@@ -1,18 +1,19 @@
 %filename: lung.m (main program)
 clear all
 clf
-% beta = 0.1
-% i = [0:0.1:1]
-%{
+beta = 1;
+betaArr = [0:0.1:1];
+maxArr = [3 3 3 3 3 3 3 3 3 3 3]
 global Pstar cstar n maxcount M Q camax RT cI;
+% i = [0:0.1:1]
 
-for beta=1:length(i)
     setup_lung
     cvsolve
     outchecklung
-end
+plot(betaArr, maxArr)
 %}
-
+%TASK 1
+%{
 Pvs = []
 Pabars = []
 PAbars = []
@@ -50,6 +51,8 @@ for i=1:length(betaArr)
     Pabars = [Pabars, Pabar]
     PAbars = [PAbars, PAbar]
     PIs = [PIs, PI]
+
+   
    
 end
 
@@ -65,3 +68,5 @@ hold on
 plot(betaArr,PAbars)
 hold on
 plot(betaArr,PIs)
+legend('Pvs', 'Pabars', 'PAbars', 'PIs')
+%}
