@@ -134,6 +134,7 @@ legend('Pvs', 'Pabars', 'PAbars', 'PIs','camaxs')
 %}
 
 %TASK 6
+%{
 Pvs = [];
 Pabars = [];
 PAbars = [];
@@ -179,3 +180,63 @@ plot(PIArr,PIs)
 hold on
 plot(PIArr,camaxs)
 legend('Pvs', 'Pabars', 'PAbars', 'PIs','camaxs')
+%}
+%TASK 9
+Pvs = []
+Pabars = []
+PAbars = []
+PIs = []
+camaxs = []
+
+crefArr = [0.005:0.01:0.09]
+global Pstar cstar n maxcount M Q camax RT cI;
+
+for i=1:length(crefArr)
+    cstar = crefArr(i)
+
+    setup_lung
+    
+    nexttile
+    figure(1)
+    plot(Q,VA,'.')
+
+    cvsolve
+    outchecklung
+
+    nexttile
+    figure(2)
+    plot(r,cblood,'.')
+
+    nexttile
+    figure(3)
+    plot(r,cair  ,'.')
+
+    nexttile
+    figure(4)
+    plot(r,Pressures,'.')
+
+    Pvs = [Pvs, Pv]
+    Pabars = [Pabars, Pabar]
+    PAbars = [PAbars, PAbar]
+    PIs = [PIs, PI]
+    camaxs = [camaxs, camax]
+
+   
+   
+end
+
+
+
+
+
+figure(5)
+plot(crefArr,Pvs)
+hold on
+plot(crefArr, Pabars)
+hold on
+plot(crefArr,PAbars)
+hold on
+plot(crefArr,PIs)
+hold on
+plot(crefArr,camax)
+legend('Pvs', 'Pabars', 'PAbars', 'PIs','camax')
