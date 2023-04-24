@@ -1,6 +1,7 @@
 %filename: lung.m (main program)
 clear all
 clf
+%{
 beta = 1;
 betaArr = [0:0.1:1];
 maxArr = [3 3 3 3 3 3 3 3 3 3 3]
@@ -11,6 +12,7 @@ global Pstar cstar n maxcount M Q camax RT cI;
     cvsolve
     outchecklung
 plot(betaArr, maxArr)
+}%
 %}
 %TASK 1
 %{
@@ -70,3 +72,62 @@ hold on
 plot(betaArr,PIs)
 legend('Pvs', 'Pabars', 'PAbars', 'PIs')
 %}
+%TASK 5
+Pvs = []
+Pabars = []
+PAbars = []
+PIs = []
+camaxs = []
+cIArr = [0.008:0.0001:0.009]
+global Pstar cstar n maxcount M Q camax RT cI;
+
+for i=1:length(cIArr)
+    cI = cIArr(i)
+
+    setup_lung
+    
+    nexttile
+    figure(1)
+    plot(Q,VA,'.')
+
+    cvsolve
+    outchecklung
+
+    nexttile
+    figure(2)
+    plot(r,cblood,'.')
+
+    nexttile
+    figure(3)
+    plot(r,cair  ,'.')
+
+    nexttile
+    figure(4)
+    plot(r,Pressures,'.')
+
+    Pvs = [Pvs, Pv]
+    Pabars = [Pabars, Pabar]
+    PAbars = [PAbars, PAbar]
+    PIs = [PIs, PI]
+    camaxs = [ camaxs, camax]
+
+   
+   
+end
+
+
+
+
+
+figure(5)
+plot(cIArr,Pvs)
+hold on
+plot(cIArr, Pabars)
+hold on
+plot(cIArr,PAbars)
+hold on
+plot(cIArr,PIs)
+hold on
+plot(cIArr,camaxs)
+legend('Pvs', 'Pabars', 'PAbars', 'PIs','camaxs')
+
