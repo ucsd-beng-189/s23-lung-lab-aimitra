@@ -139,7 +139,7 @@ Pabars = [];
 PAbars = [];
 PIs = [];
 camaxs = [];
-PIArr = [100:10:300];
+PIArr = [50:10:300];
 global Pstar cstar n maxcount M Q camax RT cI;
 
 for i=1:length(PIArr)
