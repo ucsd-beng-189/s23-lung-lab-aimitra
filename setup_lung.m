@@ -25,7 +25,9 @@ cstar=cref
 %in blood expressed in moles/liter)
 %
 %rate of oxygen consumption (moles/minute):
-M=0.25*cref*5.6
+%M=0.25*cref*5.6
+%M=2.68*0.25*cref*5.6
+M=0.04
 %
 %oxygen partial pressure 
 %at which hemoglobin is half-saturated:
@@ -71,4 +73,4 @@ r=VA./Q;
 VAtotal=sum(VA)
 Qtotal =sum(Q)
 VAbar=VAtotal/n
- Qbar= Qtotal/n
+Qbar= Qtotal/n
