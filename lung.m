@@ -13,7 +13,12 @@ for beta=1:length(i)
 end
 %}
 
-j = 0
+Pvs = []
+Pabars = []
+PAbars = []
+PIs = []
+
+
 betaArr = [0:0.1:1]
 global Pstar cstar n maxcount M Q camax RT cI;
 
@@ -41,18 +46,22 @@ for i=1:length(betaArr)
     figure(4)
     plot(r,Pressures,'.')
 
-    j = j + 3
-
+    Pvs = [Pvs, Pv]
+    Pabars = [Pabars, Pabar]
+    PAbars = [PAbars, PAbar]
+    PIs = [PIs, PI]
+   
 end
 
 
-%{
-plot(beta,Pv)
+
+
+
+figure(5)
+plot(betaArr,Pvs)
 hold on
-plot(beta, Pabar)
+plot(betaArr, Pabars)
 hold on
-plot(beta,PAbar)
+plot(betaArr,PAbars)
 hold on
-plot(beta,PI)
-end
-%}
+plot(betaArr,PIs)
