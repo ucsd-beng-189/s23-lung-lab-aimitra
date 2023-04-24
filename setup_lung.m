@@ -16,7 +16,7 @@ cref=0.2/(22.4*(310/273))
 %in air at sea level at body temperature
 %
 %oxygen concentration in the inspired air:
-%cI=cref
+cI=cref
 %
 %blood oxygen concentration
 %at full hemoglobin saturation: 
@@ -39,7 +39,7 @@ RT=760*22.4*(310/273)
 %
 %oxygen partial pressure 
 %in the inspired air (mmHg):
-PI=RT*cI %INSPIRED PARTIAL PRESSURE
+%PI=RT*cI %INSPIRED PARTIAL PRESSURE
 %
 %oxygen concentration
 %in blood exposed directly to inspired air:

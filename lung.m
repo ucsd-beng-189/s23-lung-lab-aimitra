@@ -73,6 +73,7 @@ plot(betaArr,PIs)
 legend('Pvs', 'Pabars', 'PAbars', 'PIs')
 %}
 %TASK 5
+%{
 Pvs = []
 Pabars = []
 PAbars = []
@@ -130,4 +131,51 @@ plot(cIArr,PIs)
 hold on
 plot(cIArr,camaxs)
 legend('Pvs', 'Pabars', 'PAbars', 'PIs','camaxs')
+%}
 
+%TASK 6
+Pvs = [];
+Pabars = [];
+PAbars = [];
+PIs = [];
+camaxs = [];
+PIArr = [100:10:300];
+global Pstar cstar n maxcount M Q camax RT cI;
+
+for i=1:length(PIArr)
+    PI = PIArr(i)
+
+    setup_lung
+    
+    
+
+    cvsolve
+    outchecklung
+
+
+
+    Pvs = [Pvs, Pv];
+    Pabars = [Pabars, Pabar];
+    PAbars = [PAbars, PAbar];
+    PIs = [PIs, PI];
+    camaxs = [ camaxs, camax];
+
+   
+   
+end
+
+
+
+
+
+figure(5)
+plot(PIArr,Pvs)
+hold on
+plot(PIArr, Pabars)
+hold on
+plot(PIArr,PAbars)
+hold on
+plot(PIArr,PIs)
+hold on
+plot(PIArr,camaxs)
+legend('Pvs', 'Pabars', 'PAbars', 'PIs','camaxs')
